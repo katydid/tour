@@ -13,7 +13,7 @@ var welcomeTour = {
 		This will result in the display of a green bar for valid, orange bar for invalid and red bar for a syntax or other error.
 	</p>
 	<p>
-		The examples in the tour are meant to be a walk through of all the features of Relapse.
+		The examples in the tour are meant to do a walk through most of the features of Relapse.
 		Running through the tour should allow you to start writing your own validating expressions.
 	</p>
 	<p>
@@ -23,13 +23,14 @@ var welcomeTour = {
 		Exercises:
 		<ol>
 			<li>
-				Change the E on the left hand side to Evolution.  You should see the bar become orange.  This indicates that the WhatsUp field in the JSON IS NOT equal to Evolution.
+				Change the E on the left hand side to Evolution.  You should see the bar become orange.  This indicates that the WhatsUp field in the JSON object <b>is not</b> equal to Evolution.
 			</li>
 			<li>
-				Change the E in the JSON the right hand side to Evolution.  You should see the bar become green.  This indicates that the WhatsUp field in the JSON IS equal to Evolution.
+				Change the E in the JSON the right hand side to Evolution.  You should see the bar become green.  This indicates that the WhatsUp field in the JSON object <b>is</b> equal to Evolution.
 			</li>
 			<li>
-				Change the Evolution on the left hand side back to E, but also change the == to ^= (which indicates has prefix). The bar should become green, indicating that the WhatsUp field in the JSON has a prefix of E.
+				Change the Evolution on the left hand side back to E, but also change the == <i>equal operator</i> to the ^= <i>starts with operator</i>. 
+				The bar should become green, indicating that the WhatsUp field in the JSON object has a prefix of E.
 			</li>
 		</ol>
 	</p>
@@ -50,7 +51,7 @@ var stringFieldsTour = {
 		The block comments /* */ should help to clarify what each of the shorthands stand for.
 	</p>
 	<p>
-		The ampersand & is used the indicate <b>and</b>, which will be discussed later, but it should be quite clear.
+		The ampersand & is used the indicate <b>and</b>, which will be discussed later, but its use here should be quite clear.
 	</p>
 	<p>
 		Exercises:
@@ -59,7 +60,7 @@ var stringFieldsTour = {
 				Change the Evolution string in the JSON text box on the right to Bevolution.  The bar should now be orange.
 			</li>
 			<li>
-				Remove the equal, has prefix and regular expression lines on the right.  The bar should green again.
+				Remove the == equal, ^= has prefix and ~= regular expression lines on the right.  The bar should green again.
 			</li>
 			<li>
 				Add your own expression that makes the bar orange again.  Maybe something like WhatsUp contains Bees.
@@ -91,25 +92,49 @@ var numberFieldsTour = {
 		You should know most of these comparotors from math, but the rest are explained using block comments.
 	</p>
 	<p>
-		The ampersand & is used the indicate <b>and</b>, which will be discussed later, but it should be quite clear.
+		The ampersand & is used the indicate <b>and</b>, which will be discussed later, but its use here should be quite clear.
+	</p>
+	<p>
+		Relapse is built for multiple serialization formats which can be more specific about number types than JSON can be.
+		The number types include:
+		<ul>
+			<li>$int - Integer</li>
+			<li>$uint - Unsigned Integer</li>
+			<li>$double - Floating point number</li>
+		</ul>
+		The JSON parser included in Katydid tries to infer the type of the number.
+		All numbers are infered as type $double, but if the number is a whole number it is also of type $int.
+		If the number is an unsigned whole number it is of type $double, $int and $uint.
+	</p>
+	<p>
+		Numbers in Relapse can be wrapped in a type to make the type of the number explicit.
+		For example:
+		<ul>
+			<li>int(123)</li>
+			<li>uint(456)</li>
+			<li>double(789)</li>
+		</ul>
+		If the type of the number is not explicity specified Relapse tries to infer it.
+		A whole number is always infered to be of type $int while a floating point number that is not a whole number is infered to be of type $double.
+		The type of $uint can not be infered and should always be specified explicity.
 	</p>
 	<p>
 		Exercises:
 		<ol>
 			<li>
-				Change the Survived field's value in the right hand side JSON to a negative number bigger than -2016.  The bar should be orange.
+				Change the Survived field's value in the right hand side JSON to a negative number bigger than -2016.  The bar should become orange.
 			</li>
 			<li>
-				Remove the lines $uint, > and ==.  The bar should be green.
+				Remove the lines $uint, > and ==.  The bar should become green.
 			</li>
 			<li>
-				Change the Survived field's value in the right hand side JSON to a floating point number like 0.1.  The bar should be orange.
+				Change the Survived field's value in the JSON object to a floating point number like 0.1.  The bar should be orange.
 			</li>
 			<li>
 				Change the $int to $double.  The bar should become green, but it is still orange.
 			</li>
 			<li>
-				Relapse infers all the numbers as integers.  So lets make it clear that they are doubles, by rapping them in double enclosed brackets.
+				Relapse infers all the whole numbers to be of $int.  So lets make it clear that they are doubles, by wrapping them in double enclosed brackets.
 				For example Survived >= double(-2016).  The bar should become green.
 			</li>
 		</ol>
@@ -118,7 +143,7 @@ var numberFieldsTour = {
 	"relapse": `(
 	Survived > 999999 &
 	Survived >= -2016 &
-	Survived == 1000000 &
+	Survived == int(1000000) &
 	Survived <= 1000000 &
 	Survived < 100000000 &
 	Survived :: $uint /*type of uint*/ &
