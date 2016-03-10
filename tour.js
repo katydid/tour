@@ -18,7 +18,9 @@ var welcomeTour = {
 	</p>
 	<p>
 		This example is validating the JSON to see whether the WhatsUp field is really equal to the string E.
-		Here are some things to try:
+	</p>
+	<p>
+		Exercises:
 		<ol>
 			<li>
 				Change the E on the left hand side to Evolution.  You should see the bar become orange.  This indicates that the WhatsUp field in the JSON IS NOT equal to Evolution.
@@ -51,7 +53,7 @@ var stringFieldsTour = {
 		The ampersand & is used the indicate <b>and</b>, which will be discussed later, but it should be quite clear.
 	</p>
 	<p>
-		Here are some things to try:
+		Exercises:
 		<ol>
 			<li>
 				Change the Evolution string in the JSON text box on the right to Bevolution.  The bar should now be orange.
@@ -92,7 +94,7 @@ var numberFieldsTour = {
 		The ampersand & is used the indicate <b>and</b>, which will be discussed later, but it should be quite clear.
 	</p>
 	<p>
-		Here are some things to try:
+		Exercises:
 		<ol>
 			<li>
 				Change the Survived field's value in the right hand side JSON to a negative number bigger than -2016.  The bar should be orange.
