@@ -54,6 +54,20 @@ var stringFieldsTour = {
 		The ampersand & is used the indicate <b>and</b>, which will be discussed later, but its use here should be quite clear.
 	</p>
 	<p>
+		Relapse allows two specifications of string literals.
+		<ul>
+			<li>raw - \`with backticks\`</li>
+			<li>intepreted - "with double quotes"</li>
+		</ul>
+		The raw string is started with a backtick, can contain any UTF8 characters and is only terminated by another backtick.
+		The intepreted string is contained within double quotes, can contain backslash escaped characters and cannot contain new lines.
+		The Relapse <a href="http://katydid.github.io/doc/syntax.html">syntax</a> documentation contains more detail on string literals.
+	</p>
+	<p>
+		Field's names can be expressed as a string literal with quotes or backticks.
+		If the field's name is basic enough, starts with an alphabet letter and is followed by zero or more letters, numbers of underscores, it does not need any quotes or backticks.
+	</p>
+	<p>
 		Exercises:
 		<ol>
 			<li>
@@ -73,9 +87,9 @@ var stringFieldsTour = {
 	WhatsUp ^= "Evo" /*has prefix*/ &
 	WhatsUp *= "volutio" /*contains*/ &
 	WhatsUp $= "tion" /*has suffix*/ &
-	WhatsUp != "Hello World" /*not equal*/ &
+	"WhatsUp" != "Hello World" /*not equal*/ &
 	WhatsUp ~= "^Evo.*tion$" /*matches regular expression*/ &
-	WhatsUp :: $string /*type of*/
+	\`WhatsUp\` :: $string /*type of*/
 )`, 
 	"input": stringFieldsJson
 }
@@ -183,7 +197,7 @@ function tourinit() {
 	});
 	codeMirrors[mode] = inputCodeMirror;
 	$("#mode" + mode).addClass("active");
-	$("#inputheading").text(mode + " input");
+	$("#inputheading").text(mode);
 
 	$("#validateButton").click(function(ev) { 
 		ev.preventDefault();
