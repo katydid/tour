@@ -166,6 +166,91 @@ var numberFieldsTour = {
 	"input": numberFieldsJson
 }
 
+var boolFieldsJson = JSON.stringify({
+	"DragonsExist": false,
+}, "", 4);
+
+var booleanTour  = { 
+	"heading": "Validating Other Fields",
+	"text": `
+	<p>
+	Booleans in Relapse are represented with the two keywords, <b>true</b> and <b>false</b>.
+	</p>
+	<p>
+	The operators ==, *=, ^=, <, etc. that we have seen before are all shorthand operators.
+	Relapse also supports more complex functions, which is invoked with the -> <i>arrow operator</i>.
+	For example <i>== false</i> is equivalent to <i>-> eq($bool, false)</i>.
+	This means that the field is of type $bool and is equal to false.
+	</p>
+	<p>
+	Bytes is the last native Relapse type.
+	Unfortunately JSON does not have any bytes type, so this tour is not going to cover it in great detail.
+	The last field comparison does not even take the field value into account: <i>-> eq(length([]byte{0x1,2,'a'}), 3)</i>.
+	It only checks whether a list of predefined bytes have a length of 3.
+	</p>
+	<p>
+	All these functions are statically typed, but some are overridden with multiple types.
+	For example <b>eq</b> is can compare any two of the same types.
+	</p>
+	<p>
+		Exercises:
+		<ol>
+			<li>
+				Change the false boolean in the JSON text box on the right to true.  The bar should become orange.
+			</li>
+			<li>
+				Remove the line containing the ignored field value and change the <i>== false</i> expression to <i>== true</i>.  The bar should stay orange.
+			</li>
+			<li>
+				Finally change the expression <i>-> eq($bool, false)</i> to <i>-> or(eq($bool, false), eq($bool, true))</i>.  The bar should become green.
+			</li>
+		</ol>
+	</p>
+	`,
+	"relapse": `(
+	DragonsExist == false &
+	DragonsExist -> eq(length([]byte{0x1,2,'a'}), 3) & // ignores the field value
+	DragonsExist -> eq($bool, false)
+)`, 
+	"input": boolFieldsJson
+}
+
+var nameJson = JSON.stringify({
+	"DragonsExist": false,
+}, "", 4);
+
+var nameTour  = { 
+	"heading": "Validating Field Names",
+	"text": `
+	<p>
+	A field's name does not just have be an equality comparison.  We have three extra operators:
+	<ul>
+		<li>| - or</li>
+		<li>! - not</li>
+		<li>_ - any</li>
+	</ul>
+	</p>
+	<p>
+		Exercises:
+		<ol>
+			<li>
+				Remove DragonsExist from the or.  The bar should become orange.
+			</li>
+			<li>
+				Change the !(_) not anything name expression to the _ any name expression.  The bar should become green again.
+			</li>
+			<li>
+				Change <i>(MonkeysSmart|_)</i> to <i>!((MonkeysSmart|_))</i>.  The bar should become orange.
+				<i>Relapse does not use brackets as a grouping mechanism.  Brackets are paired with their operators.  The ! operator will always have brackets and the | operator as well.
+				This is why we need two brackets, one for the | and one for the !.</i>
+			</li>
+		</ol>
+	</p>
+	`,
+	"relapse": `(DragonsExist|MonkeysSmart|!(_)) == false`, 
+	"input": nameJson
+}
+
 var workInProgressTour = { 
 	"heading": "Work in Progress",
 	"text": `
@@ -179,6 +264,8 @@ var tours = [
 	welcomeTour,
 	stringFieldsTour,
 	numberFieldsTour,
+	booleanTour,
+	nameTour,
 	workInProgressTour
 ]
 
