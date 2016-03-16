@@ -343,6 +343,51 @@ var structTour = {
 	"input": structJson,
 }
 
+var concatJson = JSON.stringify({
+	"History": [
+        "Giant Lizards",
+        "Meteor",
+        "Lizards Dead",
+        "Katydids Alive"
+    ],
+}, "", 4);
+
+var concatTour = {
+	"heading": "Order [,]",
+	"text": `
+	<p>
+		An ordered list can be created using the [ (open bracket) , (comma) and ] (close bracket) operators.
+	</p>
+	<p>
+		When a Katydid parser parses an array it typically returns an array element as an int representing the index with a child representing the value.
+		We can ignore the index value using the _ operator.  There should always be at least two elements in the ordered list.
+	</p>
+	<p>
+		Exercises:
+		<ol>
+			<li>
+				Remove the : operator next to the [ operator. The bar should stay green, since the colon is redundant.
+			</li>
+			<li>
+				Swap the lines containing the underscores.  The bar should become orange, since the order is not the same as in the JSON.
+			</li>
+			<li>
+				Replace each line with *, if it contains underscores.  The bar should become green.
+			</li>
+		</ol>
+	</p>
+	`,
+	"relapse": `History: [
+	0: == "Giant Lizards",
+	_ == "Meteor",
+	2:*,
+	_: *= "Alive",
+]
+	`,
+	"input": concatJson,
+}
+
+
 var tours = [
 	welcomeTour,
 	stringFieldsTour,
@@ -352,6 +397,7 @@ var tours = [
 	zanyTour,
 	andOrTour,
 	structTour,
+	concatTour,
 	workInProgressTour
 ]
 
