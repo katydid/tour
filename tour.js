@@ -184,13 +184,13 @@ var booleanTour  = {
 	</p>
 	<p>
 	Bytes is the last native Relapse type.
-	Unfortunately JSON does not have any bytes type, so this tour is not going to cover it in great detail.
-	The last field comparison does not even take the field value into account: <i>-> eq(length([]byte{0x1,2,'a'}), 3)</i>.
+	Unfortunately JSON does not have a bytes type, so this tour is not going to cover it in great detail.
+	The second field comparison does not even take the field value into account: <i>-> eq(length([]byte{0x1,2,'a'}), 3)</i>.
 	It only checks whether a list of predefined bytes have a length of 3.
 	</p>
 	<p>
 	All these functions are statically typed, but some are overridden with multiple types.
-	For example <b>eq</b> is can compare any two of the same types.
+	For example <b>eq</b> can compare any two of the same types.
 	</p>
 	<p>
 		Exercises:
@@ -317,6 +317,31 @@ var andOrTour = {
 	"input": andOrJson,
 }
 
+var structJson = JSON.stringify({
+	"Wish": {
+		"Dart": "Poison",
+	},
+}, "", 4);
+
+var structTour = {
+	"heading": "Structures :",
+	"text": `
+	<p>
+		The : infix operator is used to that a name on the left has a value on the right, where a value can be a value, structure, list or any type of children.
+		The : operator is not always necessary, for instance with the use of shorthand functions, complex functions and other operators that will be covered later.
+	</p>
+	<p>
+		Exercises:
+		<ol>
+			<li>
+				Remove the : operator next to the == operator. The bar should stay green, since the colon is redundant.
+			</li>
+		</ol>
+	</p>
+	`,
+	"relapse": 'Wish: Dart: == "Poison"',
+	"input": structJson,
+}
 
 var tours = [
 	welcomeTour,
@@ -326,6 +351,7 @@ var tours = [
 	nameTour,
 	zanyTour,
 	andOrTour,
+	structTour,
 	workInProgressTour
 ]
 
