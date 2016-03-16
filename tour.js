@@ -95,7 +95,7 @@ var stringFieldsTour = {
 }
 
 var numberFieldsJson = JSON.stringify({
-	"Survived": 100000000,
+	"Survived": 1000000,
 }, "", 4);
 
 var numberFieldsTour = { 
@@ -385,4 +385,5 @@ function tourinit() {
 	} else {
 		document.getElementById("nextButton").style.visibility = "hidden";
 	}
+	validateCode(mode, codeMirrors);
 }
