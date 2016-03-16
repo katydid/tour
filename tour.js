@@ -44,7 +44,7 @@ var stringFieldsJson = JSON.stringify({
 }, "", 4);
 
 var stringFieldsTour = { 
-	"heading": "Validating String Fields",
+	"heading": "Strings",
 	"text": `
 	<p>
 		There are a couple of built in functions for validating strings with special shorthands.
@@ -99,7 +99,7 @@ var numberFieldsJson = JSON.stringify({
 }, "", 4);
 
 var numberFieldsTour = { 
-	"heading": "Validating Number Fields",
+	"heading": "Numbers",
 	"text": `
 	<p>
 		There are a couple of built in functions for validating numbers with special shorthands.
@@ -171,7 +171,7 @@ var boolFieldsJson = JSON.stringify({
 }, "", 4);
 
 var booleanTour  = { 
-	"heading": "Validating Other Fields",
+	"heading": "Other Types",
 	"text": `
 	<p>
 	Booleans in Relapse are represented with the two keywords, <b>true</b> and <b>false</b>.
@@ -220,7 +220,7 @@ var nameJson = JSON.stringify({
 }, "", 4);
 
 var nameTour  = { 
-	"heading": "Validating Field Names",
+	"heading": "Names",
 	"text": `
 	<p>
 	A field's name does not just have be an equality comparison.  We have three extra operators:
@@ -251,12 +251,70 @@ var nameTour  = {
 	"input": nameJson
 }
 
+var zanyJson = JSON.stringify({
+	"DragonsExist": true,
+	"DinosaursAlive": true,
+}, "", 4);
+
+var zanyTour = {
+	"heading": "*",
+	"text": `
+	<p>
+		The star '*' character validates zero or more of anything.  This means any structure, list of fields, field value or even nothing.
+	</p>
+	<p>
+		Exercises:
+		<ol>
+			<li>
+				Convince yourself that you cannot change the JSON input to something that is invalid.
+				The only way to do that would be to change the JSON to have a syntax error.
+			</li>
+		</ol>
+	</p>
+	`,
+	"relapse": "*",
+	"input": zanyJson,
+}
+
 var workInProgressTour = { 
 	"heading": "Work in Progress",
 	"text": `
 	`,
 	"relapse": ``, 
 	"input": ``
+}
+
+var andOrJson = JSON.stringify({
+	"Age": 31,
+}, "", 4);
+
+var andOrTour = {
+	"heading": "And and Or",
+	"text": `
+	<p>
+		The &amp; (And) the | (Or) operators act as logic operators.
+		These operators need to be in parentheses.
+	</p>
+	<p>
+		Exercises:
+		<ol>
+			<li>
+				Change the value of Age in the JSON on the right to 33.  The bar should become orange.
+			</li>
+			<li>
+				Change the &amp; operators to an | operators.  The bar should become green.
+			</li>
+			<li>
+				Remove the parentheses.  The bar should become red.
+			</li>
+			<li>
+				Using one name and one value reproduce the original logic using the <i>and</i>, <i>gt</i>, <i>lt</i> and <i>eq</i> functions as well as the -> operator.
+			</li>
+		</ol>
+	</p>
+	`,
+	"relapse": "(Age > 30 & Age < 32 & Age == 31)",
+	"input": andOrJson,
 }
 
 
@@ -266,6 +324,8 @@ var tours = [
 	numberFieldsTour,
 	booleanTour,
 	nameTour,
+	zanyTour,
+	andOrTour,
 	workInProgressTour
 ]
 
