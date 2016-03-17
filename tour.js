@@ -392,6 +392,7 @@ var concatTour = {
 	"text": `
 	<p>
 		An ordered list can be created using the [ (open bracket) , (comma) and ] (close bracket) operators.
+		This is also called the Concat operator, since it concatenates two patterns together.
 	</p>
 	<p>
 		When a Katydid parser parses an array it typically returns an array element as an int representing the index with a child representing the value.
@@ -425,6 +426,51 @@ var concatTour = {
 	"input": concatJson,
 }
 
+var zeroOrMoreJson = JSON.stringify({
+	"History": [
+        "Giant Lizards",
+        "Meteor",
+        "Lizards Dead",
+        "Katydids Alive"
+    ],
+}, "", 4);
+
+var zeroOrMoreTour = {
+	"heading": "Zero or more ()*",
+	"text": `
+	<p>
+		Placing an expression inside parentheses and adding a * operator as a suffix indicates a zero or more expression.
+		This means that you expect this expression to repeat zero or more times.
+	</p>
+	<p>
+		In this example the History field contains an array with zero or more elements, where each element is of type string.
+	</p>
+	<p>
+		Exercises:
+		<ol>
+			<li>
+				Change <i>_ :: $string</i> to <i>_ *= "Lizards"</i>.  The bar should become orange.
+			</li>
+			<li>
+				Change the JSON on the right, by removing all the elements in the array that do not contain the string "Lizards".
+				The bar should become green again.
+			</li>
+			<li>
+				Zero or more works well in conjuction with the Concat operator.  So lets change the <i>(_ *= "Lizards")*</i> expression
+				to <i>[1 *= "Lizards", (_ *= "Lizards")*]</i>.  The bar should become orange.
+			</li>
+			<li>
+				Change the index of 1 to a number that makes the bar green again.
+			</li>
+			<li>
+				Add more elements to the array in the JSON on the right, while keeping the bar green.
+			</li>
+		</ol>
+	</p>
+	`,
+	"relapse": 'History: (_ :: $string)*',
+	"input": zeroOrMoreJson,
+}
 
 var tours = [
 	welcomeTour,
@@ -437,6 +483,7 @@ var tours = [
 	structTour,
 	emptyTour,
 	concatTour,
+	zeroOrMoreTour,
 	workInProgressTour
 ]
 
