@@ -472,6 +472,43 @@ var zeroOrMoreTour = {
 	"input": zeroOrMoreJson,
 }
 
+var interleaveJson = JSON.stringify({
+	"DragonsExist": false,
+    "WhatsUp": "E",
+    "MonkeysSmart": true
+}, "", 4);
+
+var interleaveTour = {
+	"heading": "Interleave {;}",
+	"text": `
+	<p>
+		Interleaved fields, where order does not matter, can be created using the { (open curly) ; (semicolon) and } (close curly) operators.
+	</p>
+	<p>
+		Exercises:
+		<ol>
+			<li>
+				Remove the last semicolon.  The bar should stay green, since you are allowed to include or forget the last semicolon. 
+			</li>
+			<li>
+				Remove the $bool lines and replace them with one line <i>_ :: $bool;</i>.
+				The bar becomes orange, since we are only specifying one interleave field of type $bool.
+			</li>
+			<li>
+				Replace <i>_ :: $bool</i> with <i>(_ :: $bool)*</i>.  The bar becomes green again.
+				Our validator now describes a structure with one field named WhatsUp of type $string and some interleaved fields of type $bool.
+			</li>
+		</ol>
+	</p>
+	`,
+	"relapse": `{
+	MonkeysSmart :: $bool;
+	DragonsExist :: $bool;
+	WhatsUp :: $string;
+}`,
+	"input": interleaveJson,
+}
+
 var tours = [
 	welcomeTour,
 	stringFieldsTour,
@@ -484,6 +521,7 @@ var tours = [
 	emptyTour,
 	concatTour,
 	zeroOrMoreTour,
+	interleaveTour,
 	workInProgressTour
 ]
 
