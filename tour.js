@@ -343,6 +343,41 @@ var structTour = {
 	"input": structJson,
 }
 
+var emptyJson = JSON.stringify({
+	"Wish": {
+		"Dart": "Poison",
+	},
+}, "", 4);
+
+var emptyTour = {
+	"heading": "<empty>",
+	"text": `
+	<p>
+		The &lt;empty&gt; operator is used to indicate a field without a value, like in XML, or a value, since a value does not have any children.
+		It can even indicate an empty structure.
+	</p>
+	<p>
+		Exercises:
+		<ol>
+			<li>
+				In the JSON on the right, change <i>"Dart": "Poison"</i> to <i>"Dart": { "Poison": {} }</i>.  The bar should stay green.
+			</li>
+			<li>
+				Replace &lt;empty&gt; with *.  The bar should stay green, since * includes &lt;empty&gt;.
+			</li>
+			<li>
+				Change the * back to &lt;empty&gt; and change the empty structure in the JSON on the right to an empty array.  The bar should stay green.
+			</li>
+			<li>
+				Add an element in the array.  The bar should become orange.
+			</li>
+		</ol>
+	</p>
+	`,
+	"relapse": 'Wish: Dart: Poison: <empty>',
+	"input": emptyJson,
+}
+
 var concatJson = JSON.stringify({
 	"History": [
         "Giant Lizards",
@@ -374,6 +409,9 @@ var concatTour = {
 			<li>
 				Replace each line with *, if it contains underscores.  The bar should become green.
 			</li>
+			<li>
+				Add extra elements in the History array in the JSON on the right.  The bar should become orange.
+			</li>
 		</ol>
 	</p>
 	`,
@@ -397,6 +435,7 @@ var tours = [
 	zanyTour,
 	andOrTour,
 	structTour,
+	emptyTour,
 	concatTour,
 	workInProgressTour
 ]
@@ -435,6 +474,8 @@ function tourinit() {
 			setHeightAuto();
 		}
 	});
+	$("#autosizeButton").addClass("active");
+	setHeightAuto();
 
 	for (var key in codeMirrors) {
 		codeMirrors[key].on('keyup', function(instance, event) {
