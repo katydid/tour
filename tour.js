@@ -509,6 +509,49 @@ var interleaveTour = {
 	"input": interleaveJson,
 }
 
+var optionalJson = JSON.stringify({
+	"DragonsExist": false,
+    "WhatsUp": "E",
+    "MonkeysSmart": true
+}, "", 4);
+
+var optionalTour = {
+	"heading": "Optional ()?",
+	"text": `
+	<p>
+		Placing an expression inside parentheses and adding a ? operator as a suffix indicates an optional expression.
+	</p>
+	<p>
+		The optional operator is just syntactic sugar.
+		The following two expressions are equivalent.
+		<ul>
+			<li>(expression)?</li>
+			<li>(expression|&lt;empty&gt;)</li>
+		</ul>
+	</p>
+	<p>
+		Exercises:
+		<ol>
+			<li>
+				Remove the DragonsExist field from the JSON on the right.  The bar should become orange, since the field is not optional.
+			</li>
+			<li>
+				Make the DragonsExist field optional.  The bar should become green.
+			</li>
+			<li>
+				Replace one of the optional expressions with is syntactic sugar equivalent.  The bar should stay green.
+			</li>
+		</ol>
+	</p>
+	`,
+	"relapse": `{
+	(MonkeysSmart :: $bool)?;
+	DragonsExist :: $bool;
+	(WhatsUp :: $string)?;
+}`,
+	"input": optionalJson,
+}
+
 var tours = [
 	welcomeTour,
 	stringFieldsTour,
@@ -522,6 +565,7 @@ var tours = [
 	concatTour,
 	zeroOrMoreTour,
 	interleaveTour,
+	optionalTour,
 	workInProgressTour
 ]
 
