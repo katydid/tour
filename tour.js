@@ -552,6 +552,43 @@ var optionalTour = {
 	"input": optionalJson,
 }
 
+var containsJson = JSON.stringify({
+	"DragonsExist": false,
+    "WhatsUp": "E",
+    "MonkeysSmart": true
+}, "", 4);
+
+var containsTour = {
+	"heading": ".Contains",
+	"text": `
+	<p>
+		Placing a . operator in front of an expression indicates that the structure contains a the expression.
+		This is especially useful when you only care about a single field.
+	</p>
+	<p>
+		The contains operator is just syntactic sugar.
+		The following two expressions are equivalent.
+		<ul>
+			<li>.expression</li>
+			<li>[*, expression, *]</li>
+		</ul>
+	</p>
+	<p>
+		Exercises:
+		<ol>
+			<li>
+				Remove the . operator.  The bar should become orange.
+			</li>
+			<li>
+				Use the . operator to create a new validation expression for one of the other fields.  The bar should become green again.
+			</li>
+		</ol>
+	</p>
+	`,
+	"relapse": `.WhatsUp == "E"`,
+	"input": containsJson,
+}
+
 var tours = [
 	welcomeTour,
 	stringFieldsTour,
@@ -566,6 +603,7 @@ var tours = [
 	zeroOrMoreTour,
 	interleaveTour,
 	optionalTour,
+	containsTour,
 	workInProgressTour
 ]
 
