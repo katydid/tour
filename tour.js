@@ -630,6 +630,57 @@ var notTour = {
 	"input": notJson,
 }
 
+var refsJson = JSON.stringify({
+	"Family": {
+        "Class": "Insecta",
+        "Order": {
+            "Superorder": {
+                "Subclass": "Pterygota",
+                "Infraclass": "Polyneoptera",
+            },
+            "Order": "Orthoptera"
+        },
+        "Suborder": "Ensifera",
+        "Family": "Tettigoniidae",
+    }
+}, "", 4);
+
+var refsTour = {
+	"heading": "References # @ =",
+	"text": `
+	<p>
+		Using references allows you to write recursive expressions.
+	</p>
+	<p>
+		The expression below is validating structures where the species' family contains an Order of Orthoptera or recursive contains an Order which contains an Order with the value of Orthoptera.
+	</p>
+	<p>
+		<ul>
+			<li># is used to name a reference</li>
+			<li>= is used to assign an expression to a reference</li>
+			<li>@ is used to reference an expression</li>
+		</ul>
+	</p>
+	<p>
+		Every expression you write without defining a reference is equivalent to <i>#main = expression</i>.
+	</p>
+	<p>
+		Exercises:
+		<ol>
+			<li>
+				Add <i>#main =</i> as a prefix to Family.  The bar should stay green.
+			</li>
+			<li>
+				Replace @order in the #main expression with the expression assigned to #order.  The bar should stay green.
+			</li>
+		</ol>
+	</p>
+	`,
+	"relapse": `Family: @order
+#order = ( .Order == "Orthoptera" | .Order: @order )`,
+	"input": refsJson,
+}
+
 var tours = [
 	welcomeTour,
 	stringFieldsTour,
@@ -646,6 +697,7 @@ var tours = [
 	optionalTour,
 	containsTour,
 	notTour,
+	refsTour,
 	workInProgressTour
 ]
 
