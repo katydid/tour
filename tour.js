@@ -681,6 +681,81 @@ var refsTour = {
 	"input": refsJson,
 }
 
+var finalJsonTour = {
+	"heading": "Write your own valid JSON",
+	"text": `
+	<p>
+		Write some JSON on the right that will validate against the expression on the left.
+	</p>
+	<p>
+		An answer will be provided on the next page.
+	</p>`,
+	"relapse": `{
+	WhatsUp *= "E";
+	History [
+		0 ^= "Dino",
+		*,
+		_ == "Katydids Alive",
+	];
+	"Survived" > 1000000;
+}`,
+	"input": "{}",
+}
+
+finalExprJson = JSON.stringify({
+	"WhatsUp": "Evolution",
+ 	"History": [
+  		"Dinosaurs",
+      	"Meteor",
+      	"Dinosaurs Dead",
+      	"Katydids Alive"
+  	],
+  	"Survived": 10000000
+}, "", 4);
+
+var finalExprTour = {
+	"heading": "Write your own validation expression",
+	"text": `
+	<p>
+		Write a validation expression on the left that validates the JSON on the right.
+	</p>
+	<p>
+		You validation expression should not use any * operators.
+	</p>
+	<p>
+		An answer will be provided on the next page.
+	</p>`,
+	"relapse": ``,
+	"input": finalExprJson,
+}
+
+var goodbyeJson = JSON.stringify({
+	"WhatsUp": "RelapsE",
+}, "", 4);
+
+var goodbyeTour = { 
+	"heading": "Thank you",
+	"text": `
+	<p>
+		Thank you for taking a tour of Relapse.
+	</p>
+	<p>
+		More documentation can be found <a href="http://katydid.github.io/">here</a>
+	</p>
+	`,
+	"relapse": `{
+	"WhatsUp" == "Evolution";
+	History [
+		0 ^= "Dino",
+		1 == "Meteor",
+		2 ^= "Dino",
+		3 $= "Alive",
+	];
+	"Survived" > 0;
+}`, 
+	"input": goodbyeJson
+}
+
 var tours = [
 	welcomeTour,
 	stringFieldsTour,
@@ -698,7 +773,9 @@ var tours = [
 	containsTour,
 	notTour,
 	refsTour,
-	workInProgressTour
+	finalJsonTour,
+	finalExprTour,
+	goodbyeTour
 ]
 
 function tourinit() {
