@@ -589,6 +589,47 @@ var containsTour = {
 	"input": containsJson,
 }
 
+var notJson = JSON.stringify({
+	"DragonsExist": false,
+    "WhatsUp": "E",
+    "MonkeysSmart": true
+}, "", 4);
+
+var notTour = {
+	"heading": "Not !()",
+	"text": `
+	<p>
+		Placing an expression inside parentheses and adding a ! operator as a prefix indicates the compliment of the expression.
+		This means that you expect to validate everything that does not match the expression.
+		In other words !(*) does not validate any input.
+	</p>
+	<p>
+		This can sometimes be counter intuitive.
+		For example: WhatsUp != "E" is not the same as !(WhatsUp == "E")
+		<ul>
+			<li><i>WhatsUp != "E"</i>, means that there is one field named WhatsUp which has a value that is not equal to the string "E".</li>
+			<li><i>!(WhatsUp == "E")</i>, means that any input will be matched as long as its not one field named WhatsUp that has a string value that is equal to "E".</li>
+		</ul>
+	</p>
+	<p>
+		Exercises:
+		<ol>
+			<li>
+				Add the . operator in front of the field name.  The bar should become orange.
+			</li>
+			<li>
+				Remove the ! and parentheses.  The bar should become green again.
+			</li>
+			<li>
+				Change the == operator to the != operator.  The bar should become orange again.
+			</li>
+		</ol>
+	</p>
+	`,
+	"relapse": `!(WhatsUp == "Evolution")`,
+	"input": notJson,
+}
+
 var tours = [
 	welcomeTour,
 	stringFieldsTour,
@@ -604,6 +645,7 @@ var tours = [
 	interleaveTour,
 	optionalTour,
 	containsTour,
+	notTour,
 	workInProgressTour
 ]
 
