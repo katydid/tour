@@ -228,26 +228,26 @@ var nameTour  = {
 	"heading": "Names",
 	"text": `
 	<p>
-	A field's name does not just have be an equality comparison.  We have three extra operators:
+	A fieldname does not just have be an equality comparison.  We have three extra operators:
 	<ul>
-		<li>| - or</li>
-		<li>! - not</li>
-		<li>_ - any</li>
+		<li>or <code>|</code></li>
+		<li>not <code>!</code></li>
+		<li>any <code>_</code></li>
 	</ul>
 	</p>
 	<p>
 		Exercises:
 		<ol>
 			<li>
-				Remove DragonsExist from the or.  The bar should become orange.
+				Remove <code>DragonsExist</code> from the or.  The bar should become orange.
 			</li>
 			<li>
-				Change the !(_) not anything name expression to the _ any name expression.  The bar should become green again.
+				Change the <code>!(_)</code> <i>not any name</i> expression to the <code>_</code> <i>any name</i> expression.  The bar should become green again.
 			</li>
 			<li>
-				Change <i>(MonkeysSmart|_)</i> to <i>!((MonkeysSmart|_))</i>.  The bar should become orange.
-				<i>Relapse does not use brackets as a grouping mechanism.  Brackets are paired with their operators.  The ! operator will always have brackets and the | operator as well.
-				This is why we need two brackets, one for the | and one for the !.</i>
+				Change <code>(MonkeysSmart|_)</code> to <code>!((MonkeysSmart|_))</code>.  The bar should become orange.
+				<i>Relapse does not use brackets as a grouping mechanism.  Brackets are paired with their operators.  The <code>!</code> operator will always have brackets and the <code>|</code> operator as well.
+				This is why we need two brackets, one for the <code>|</code> and one for the <code>!</code>.</i>
 			</li>
 		</ol>
 	</p>
@@ -265,7 +265,7 @@ var zanyTour = {
 	"heading": "*",
 	"text": `
 	<p>
-		The star '*' character validates zero or more of anything.  This means any structure, list of fields, field value or even nothing.
+		The star <code>*</code> character validates zero or more of anything.  This means any structure, list of fields, field value or even an empty structure.
 	</p>
 	<p>
 		Exercises:
@@ -281,14 +281,6 @@ var zanyTour = {
 	"input": zanyJson,
 }
 
-var workInProgressTour = { 
-	"heading": "Work in Progress",
-	"text": `
-	`,
-	"relapse": ``, 
-	"input": ``
-}
-
 var andOrJson = JSON.stringify({
 	"Age": 31,
 }, "", 4);
@@ -297,23 +289,23 @@ var andOrTour = {
 	"heading": "And and Or",
 	"text": `
 	<p>
-		The &amp; (And) the | (Or) operators act as logic operators.
+		The <code>&amp;</code> <i>And</i> and the <code>|</code> <i>Or</i> operator act as logic operators.
 		These operators need to be in parentheses.
 	</p>
 	<p>
 		Exercises:
 		<ol>
 			<li>
-				Change the value of Age in the JSON on the right to 33.  The bar should become orange.
+				Change the value of <code>Age</code> in the JSON textbox to <code>33</code>.  The bar should become orange.
 			</li>
 			<li>
-				Change the &amp; operators to an | operators.  The bar should become green.
+				Change the <code>&amp;</code> operators to <code>|</code> operators.  The bar should become green.
 			</li>
 			<li>
 				Remove the parentheses.  The bar should become red.
 			</li>
 			<li>
-				Using one name and one value reproduce the original logic using the <i>and</i>, <i>gt</i>, <i>lt</i> and <i>eq</i> functions as well as the -> operator.
+				Using one name and one value, reproduce the original logic using the <code>and</code>, <code>gt</code>, <code>lt</code> and <code>eq</code> functions as well as the <code>-></code> operator.
 			</li>
 		</ol>
 	</p>
@@ -332,14 +324,14 @@ var structTour = {
 	"heading": "Structures :",
 	"text": `
 	<p>
-		The : infix operator is used to that a name on the left has a value on the right, where a value can be a value, structure, list or any type of children.
-		The : operator is not always necessary, for instance with the use of shorthand functions, complex functions and other operators that will be covered later.
+		The <code>:</code> infix operator is given name on the left and a value on the right, where a value can be a value, structure, list or any type of children.
+		The <code>:</code> operator is not always necessary, for instance with the use of shorthand functions, complex functions and other operators that will be covered later.
 	</p>
 	<p>
 		Exercises:
 		<ol>
 			<li>
-				Remove the : operator next to the == operator. The bar should stay green, since the colon is redundant.
+				Remove the <code>:</code> operator next to the <code>==</code> operator. The bar should stay green, since the colon is redundant.
 			</li>
 		</ol>
 	</p>
@@ -358,20 +350,20 @@ var emptyTour = {
 	"heading": "<empty>",
 	"text": `
 	<p>
-		The &lt;empty&gt; operator is used to indicate a field without a value, like in XML, or a value, since a value does not have any children.
+		The <code>&lt;empty&gt;</code> operator is used to indicate a field without a value, like in XML, or a value, since a value does not have any children.
 		It can even indicate an empty structure.
 	</p>
 	<p>
 		Exercises:
 		<ol>
 			<li>
-				In the JSON on the right, change <i>"Dart": "Poison"</i> to <i>"Dart": { "Poison": {} }</i>.  The bar should stay green.
+				In the JSON textbox, change <code>"Dart": "Poison"</code> to <code>"Dart": { "Poison": {} }</code>.  The bar should stay green.
 			</li>
 			<li>
-				Replace &lt;empty&gt; with *.  The bar should stay green, since * includes &lt;empty&gt;.
+				Replace <code>&lt;empty&gt;</code> with <code>*</code>.  The bar should stay green, since <code>*</code> includes <code>&lt;empty&gt;</code>.
 			</li>
 			<li>
-				Change the * back to &lt;empty&gt; and change the empty structure in the JSON on the right to an empty array.  The bar should stay green.
+				Change the <code>*</code> back to <code>&lt;empty&gt;</code> and change the empty structure in the JSON on the right to an empty array.  The bar should stay green.
 			</li>
 			<li>
 				Add an element in the array.  The bar should become orange.
@@ -396,27 +388,27 @@ var concatTour = {
 	"heading": "Order [,]",
 	"text": `
 	<p>
-		An ordered list can be created using the [ (open bracket) , (comma) and ] (close bracket) operators.
+		An ordered list can be created using the <code>[</code> <i>open bracket</i>, <code>,</code> <i>comma</i> and <code>]</code> <i>close bracket</i> operators.
 		This is also called the Concat operator, since it concatenates two patterns together.
 	</p>
 	<p>
 		When a Katydid parser parses an array it typically returns an array element as an int representing the index with a child representing the value.
-		We can ignore the index value using the _ operator.  There should always be at least two elements in the ordered list.
+		We can ignore the index value using the <code>_</code> operator.  There should always be at least two elements in the ordered list.
 	</p>
 	<p>
 		Exercises:
 		<ol>
 			<li>
-				Remove the : operator next to the [ operator. The bar should stay green, since the colon is redundant.
+				Remove the <code>:</code> operator next to the <code>[</code> operator. The bar should stay green, since the colon is redundant.
 			</li>
 			<li>
 				Swap the lines containing the underscores.  The bar should become orange, since the order is not the same as in the JSON.
 			</li>
 			<li>
-				Replace each line with *, if it contains underscores.  The bar should become green.
+				Replace each line that contains underscores with <code>*</code>.  The bar should become green.
 			</li>
 			<li>
-				Add extra elements in the History array in the JSON on the right.  The bar should become orange.
+				Add extra elements in the <code>History</code> array in the JSON textbox.  The bar should become orange.
 			</li>
 		</ol>
 	</p>
@@ -444,31 +436,31 @@ var zeroOrMoreTour = {
 	"heading": "Zero or more ()*",
 	"text": `
 	<p>
-		Placing an expression inside parentheses and adding a * operator as a suffix indicates a zero or more expression.
+		Placing an expression inside parentheses and adding a <code>*</code> operator as a suffix indicates a zero or more expression.
 		This means that you expect this expression to repeat zero or more times.
 	</p>
 	<p>
-		In this example the History field contains an array with zero or more elements, where each element is of type string.
+		In this example the <code>History</code> field contains an array with zero or more elements, where each element is of type string.
 	</p>
 	<p>
 		Exercises:
 		<ol>
 			<li>
-				Change <i>_ :: $string</i> to <i>_ *= "Lizards"</i>.  The bar should become orange.
+				Change <code>_ :: $string</code> to <code>_ *= "Lizards"</code>.  The bar should become orange.
 			</li>
 			<li>
-				Change the JSON on the right, by removing all the elements in the array that do not contain the string "Lizards".
+				Change the JSON by removing all the elements in the array that do not contain the string "Lizards".
 				The bar should become green again.
 			</li>
 			<li>
-				Zero or more works well in conjuction with the Concat operator.  So lets change the <i>(_ *= "Lizards")*</i> expression
-				to <i>[1 *= "Lizards", (_ *= "Lizards")*]</i>.  The bar should become orange.
+				Zero or more works well in conjunction with the Concat operator.  So lets change the <code>(_ *= "Lizards")*</code> expression
+				to <code>[1 *= "Lizards", (_ *= "Lizards")*]</code>.  The bar should become orange.
 			</li>
 			<li>
-				Change the index of 1 to a number that makes the bar green again.
+				Change the index of <code>1</code> to a number that makes the bar green again.
 			</li>
 			<li>
-				Add more elements to the array in the JSON on the right, while keeping the bar green.
+				Add more elements to the array in the JSON, while keeping the bar green.
 			</li>
 		</ol>
 	</p>
@@ -487,7 +479,7 @@ var interleaveTour = {
 	"heading": "Interleave {;}",
 	"text": `
 	<p>
-		Interleaved fields, where order does not matter, can be created using the { (open curly) ; (semicolon) and } (close curly) operators.
+		Interleaved fields, where order does not matter, can be created using the <code>{</code> <i>open curly</i>, <code>;</code> <i>semicolon</i> and <code>}</code> <i>close curly</i> operators.
 	</p>
 	<p>
 		Exercises:
@@ -496,12 +488,12 @@ var interleaveTour = {
 				Remove the last semicolon.  The bar should stay green, since you are allowed to include or forget the last semicolon. 
 			</li>
 			<li>
-				Remove the $bool lines and replace them with one line <i>_ :: $bool;</i>.
-				The bar becomes orange, since we are only specifying one interleave field of type $bool.
+				Remove the lines containing <code>$bool</code> and replace them with one line <code>_ :: $bool;</code>.
+				The bar becomes orange, since we are only specifying one interleave field of type <code>$bool</code>.
 			</li>
 			<li>
-				Replace <i>_ :: $bool</i> with <i>(_ :: $bool)*</i>.  The bar becomes green again.
-				Our validator now describes a structure with one field named WhatsUp of type $string and some interleaved fields of type $bool.
+				Replace <code>_ :: $bool</code> with <code>(_ :: $bool)*</code>.  The bar becomes green again.
+				Our validator now describes a structure with one field named WhatsUp of type <code>$string</code> and some interleaved fields of type <code>$bool</code>.
 			</li>
 		</ol>
 	</p>
@@ -524,21 +516,21 @@ var optionalTour = {
 	"heading": "Optional ()?",
 	"text": `
 	<p>
-		Placing an expression inside parentheses and adding a ? operator as a suffix indicates an optional expression.
+		Placing an expression inside parentheses and adding a <code>?</code> operator as a suffix indicates an optional expression.
 	</p>
 	<p>
 		The optional operator is just syntactic sugar.
 		The following two expressions are equivalent.
 		<ul>
-			<li>(expression)?</li>
-			<li>(expression|&lt;empty&gt;)</li>
+			<li><code>(expression)?</code></li>
+			<li><code>(expression|&lt;empty&gt;)</code></li>
 		</ul>
 	</p>
 	<p>
 		Exercises:
 		<ol>
 			<li>
-				Remove the DragonsExist field from the JSON on the right.  The bar should become orange, since the field is not optional.
+				Remove the DragonsExist field from the JSON.  The bar should become orange, since the field is not optional.
 			</li>
 			<li>
 				Make the DragonsExist field optional.  The bar should become green.
@@ -567,25 +559,25 @@ var containsTour = {
 	"heading": ".Contains",
 	"text": `
 	<p>
-		Placing a . operator in front of an expression indicates that the structure contains a the expression.
+		Placing a <code>.</code> operator in front of an expression indicates that the structure contains a the expression.
 		This is especially useful when you only care about a single field.
 	</p>
 	<p>
 		The contains operator is just syntactic sugar.
 		The following two expressions are equivalent.
 		<ul>
-			<li>.expression</li>
-			<li>[*, expression, *]</li>
+			<li><code>.expression</code></li>
+			<li><code>[*, expression, *]</code></li>
 		</ul>
 	</p>
 	<p>
 		Exercises:
 		<ol>
 			<li>
-				Remove the . operator.  The bar should become orange.
+				Remove the <code>.</code> operator.  The bar should become orange.
 			</li>
 			<li>
-				Use the . operator to create a new validation expression for one of the other fields.  The bar should become green again.
+				Use the <code>.</code> operator to create a new validation expression for one of the other fields.  The bar should become green again.
 			</li>
 		</ol>
 	</p>
@@ -604,29 +596,29 @@ var notTour = {
 	"heading": "Not !()",
 	"text": `
 	<p>
-		Placing an expression inside parentheses and adding a ! operator as a prefix indicates the compliment of the expression.
+		Placing an expression inside parentheses and adding an <code>!</code> operator as a prefix indicates the compliment of the expression.
 		This means that you expect to validate everything that does not match the expression.
-		In other words !(*) does not validate any input.
+		In other words <code>!(*)</code> doesn't validate any input.
 	</p>
 	<p>
 		This can sometimes be counter intuitive.
-		For example: WhatsUp != "E" is not the same as !(WhatsUp == "E")
+		For example: <code>WhatsUp != "E"</code> is not the same as <code>!(WhatsUp == "E")</code>
 		<ul>
-			<li><i>WhatsUp != "E"</i>, means that there is one field named WhatsUp which has a value that is not equal to the string "E".</li>
-			<li><i>!(WhatsUp == "E")</i>, means that any input will be matched as long as its not one field named WhatsUp that has a string value that is equal to "E".</li>
+			<li><code>WhatsUp != "E"</code>, means that there is one field named WhatsUp which has a value that is not equal to the string "E".</li>
+			<li><code>!(WhatsUp == "E")</code>, means that any input will be matched as long as its not one field named WhatsUp that has a string value that is equal to "E".</li>
 		</ul>
 	</p>
 	<p>
 		Exercises:
 		<ol>
 			<li>
-				Add the . operator in front of the field name.  The bar should become orange.
+				Add the <code>.</code> operator in front of the field name.  The bar should become orange.
 			</li>
 			<li>
-				Remove the ! and parentheses.  The bar should become green again.
+				Remove the <code>!</code> and the parentheses.  The bar should become green again.
 			</li>
 			<li>
-				Change the == operator to the != operator.  The bar should become orange again.
+				Change the <code>==</code> operator to the <code>!=</code> operator.  The bar should become orange again.
 			</li>
 		</ol>
 	</p>
@@ -657,26 +649,26 @@ var refsTour = {
 		Using references allows you to write recursive expressions.
 	</p>
 	<p>
-		The expression below is validating structures where the species' family contains an Order of Orthoptera or recursive contains an Order which contains an Order with the value of Orthoptera.
+		The expression below is validating structures where the species' family contains an Order of Orthoptera or recursively contains an Order which contains an Order with the value of Orthoptera.
 	</p>
 	<p>
 		<ul>
-			<li># is used to name a reference</li>
-			<li>= is used to assign an expression to a reference</li>
-			<li>@ is used to reference an expression</li>
+			<li><code>#</code> is used to name a reference</li>
+			<li><code>=</code> is used to assign an expression to a reference</li>
+			<li><code>@</code> is used to reference an expression</li>
 		</ul>
 	</p>
 	<p>
-		Every expression you write without defining a reference is equivalent to <i>#main = expression</i>.
+		Every expression you write without defining a reference is equivalent to <code>#main = expression</code>.
 	</p>
 	<p>
 		Exercises:
 		<ol>
 			<li>
-				Add <i>#main =</i> as a prefix to Family.  The bar should stay green.
+				Add <code>#main =</code> as a prefix to the expression that starts with <code>Family</code>.  The bar should stay green.
 			</li>
 			<li>
-				Replace @order in the #main expression with the expression assigned to #order.  The bar should stay green.
+				Replace <code>@order</code> in the <code>#main</code> expression with the expression assigned to <code>#order</code>.  The bar should stay green.
 			</li>
 		</ol>
 	</p>
@@ -690,10 +682,10 @@ var finalJsonTour = {
 	"heading": "Write your own valid JSON",
 	"text": `
 	<p>
-		Write some JSON on the right that will validate against the expression on the left.
+		Write some JSON that will validate against the provided expression.
 	</p>
 	<p>
-		An answer will be provided on the next page.
+		An answer, valid JSON, will be provided on the next page.
 	</p>`,
 	"relapse": `{
 	WhatsUp *= "E";
@@ -722,10 +714,10 @@ var finalExprTour = {
 	"heading": "Write your own validation expression",
 	"text": `
 	<p>
-		Write a validation expression on the left that validates the JSON on the right.
+		Write a validation expression that validates the provided JSON.
 	</p>
 	<p>
-		You validation expression should not use any * operators.
+		You validation expression should not use any <code>*</code> operators.
 	</p>
 	<p>
 		An answer will be provided on the next page.
