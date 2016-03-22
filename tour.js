@@ -405,10 +405,10 @@ var concatTour = {
 				Swap the lines containing the underscores.  The bar should become orange, since the order is not the same as in the JSON.
 			</li>
 			<li>
-				Replace each line that contains underscores with <code>*</code>.  The bar should become green.
+				Replace each line that contains underscores with <code>*,</code>.  The bar should become green.
 			</li>
 			<li>
-				Add extra elements in the <code>History</code> array in the JSON textbox.  The bar should become orange.
+				Add extra elements in the <code>History</code> array in the JSON textbox.  The bar should become orange if put the new elements at the start of the array.
 			</li>
 		</ol>
 	</p>
@@ -623,7 +623,7 @@ var notTour = {
 		</ol>
 	</p>
 	`,
-	"relapse": `!(WhatsUp == "Evolution")`,
+	"relapse": `!(WhatsUp == "E")`,
 	"input": notJson,
 }
 
