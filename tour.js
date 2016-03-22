@@ -14,7 +14,7 @@ var welcomeTour = {
 	</p>
 	<p>
 		The examples in the tour are meant to do a walk through most of the features of Relapse.
-		Running through the tour should allow you to start writing your own validating expressions.
+		After running through the tour you should be able to start writing your own validating expressions.
 	</p>
 	<p>
 		This example is validating the JSON to see whether the WhatsUp field is really equal to the string E.
@@ -23,13 +23,13 @@ var welcomeTour = {
 		Exercises:
 		<ol>
 			<li>
-				Change the E on the left hand side to Evolution.  You should see the bar become orange.  This indicates that the WhatsUp field in the JSON object <b>is not</b> equal to Evolution.
+				Change the <code>E</code> in the expression textbox, on the left, to <code>Evolution</code>.  The bar should become orange.  This indicates that the WhatsUp field in the JSON object <b>is not</b> equal to Evolution.
 			</li>
 			<li>
-				Change the E in the JSON the right hand side to Evolution.  You should see the bar become green.  This indicates that the WhatsUp field in the JSON object <b>is</b> equal to Evolution.
+				Change the <code>E</code> in the json textbox, on the right, to <code>Evolution</code>.  The bar should become green.  This indicates that the WhatsUp field in the JSON object <b>is</b> equal to Evolution.
 			</li>
 			<li>
-				Change the Evolution on the left hand side back to E, but also change the == <i>equal operator</i> to the ^= <i>starts with operator</i>. 
+				Change the <code>Evolution</code> string in the expression textbox back to <code>E</code>, but also change the <code>==</code> <i>equal operator</i> to the <code>^=</code> <i>starts with operator</i>. 
 				The bar should become green, indicating that the WhatsUp field in the JSON object has a prefix of E.
 			</li>
 		</ol>
@@ -47,37 +47,38 @@ var stringFieldsTour = {
 	"heading": "Strings",
 	"text": `
 	<p>
-		There are a couple of built in functions for validating strings with special shorthands.
-		The block comments /* */ should help to clarify what each of the shorthands stand for.
-	</p>
-	<p>
-		The ampersand & is used the indicate <b>and</b>, which will be discussed later, but its use here should be quite clear.
-	</p>
-	<p>
-		Relapse allows two specifications of string literals.
+		Relapse allows two specifications for string literals.
 		<ul>
-			<li>raw - \`with backticks\`</li>
-			<li>intepreted - "with double quotes"</li>
+			<li>raw <code>\`with backticks\`</code></li>
+			<li>interpreted <code>"with double quotes"</code></li>
 		</ul>
 		The raw string is started with a backtick, can contain any UTF8 characters and is only terminated by another backtick.
-		The intepreted string is contained within double quotes, can contain backslash escaped characters and cannot contain new lines.
+		The interpreted string is contained within double quotes, can contain backslash escaped characters and cannot contain any new lines.
 		The Relapse <a href="http://katydid.github.io/doc/syntax.html">syntax</a> documentation contains more detail on string literals.
 	</p>
 	<p>
-		Field's names can be expressed as a string literal with quotes or backticks.
-		If the field's name is basic enough, starts with an alphabet letter and is followed by zero or more letters, numbers of underscores, it does not need any quotes or backticks.
+		Fieldnames can be expressed as a string literal with quotes or backticks.
+		If the field's name is basic enough, starts with an alphabet letter and is followed by zero or more letters, numbers or underscores, it does not need any quotes or backticks.
+	</p>
+	<p>
+		There are a couple of built in functions for validating strings with special shorthands.
+		The block comments <code>/* */</code> should help to clarify what each of the shorthands stand for.
+	</p>
+	<p>
+		The ampersand <code>&amp;</code> is used the indicate <b>and</b>, which will be discussed later, but its use here should be quite clear.
 	</p>
 	<p>
 		Exercises:
 		<ol>
 			<li>
-				Change the Evolution string in the JSON text box on the right to Bevolution.  The bar should now be orange.
+				Change the <code>Evolution</code> string in the JSON textbox to <code>Bevolution</code>.  The bar should now be orange.
 			</li>
 			<li>
-				Remove the == equal, ^= has prefix and ~= regular expression lines on the right.  The bar should green again.
+				Remove the <code>==</code> equal, <code>^=</code> has prefix and <code>~=</code> regular expression lines in the expression textbox.  The bar should green again.
 			</li>
 			<li>
-				Add your own expression that makes the bar orange again.  Maybe something like WhatsUp contains Bees.
+				Add your own expression in the expression textbox that makes the bar orange again.  Maybe something like WhatsUp contains Bees.
+				Remember to add your own ampersand <code>&amp;</code> operator for your extra expression.
 			</li>
 		</ol>
 	</p>
@@ -102,54 +103,58 @@ var numberFieldsTour = {
 	"heading": "Numbers",
 	"text": `
 	<p>
-		There are a couple of built in functions for validating numbers with special shorthands.
-		You should know most of these comparotors from math, but the rest are explained using block comments.
-	</p>
-	<p>
-		The ampersand & is used the indicate <b>and</b>, which will be discussed later, but its use here should be quite clear.
-	</p>
-	<p>
 		Relapse is built for multiple serialization formats which can be more specific about number types than JSON can be.
 		The number types include:
 		<ul>
-			<li>$int - Integer</li>
-			<li>$uint - Unsigned Integer</li>
-			<li>$double - Floating point number</li>
+			<li>Integer <code>$int</code></li>
+			<li>Unsigned integer <code>$uint</code></li>
+			<li>Floating point number <code>$double</code></li>
 		</ul>
 		The JSON parser included in Katydid tries to infer the type of the number.
-		All numbers are infered as type $double, but if the number is a whole number it is also of type $int.
-		If the number is an unsigned whole number it is of type $double, $int and $uint.
+		All numbers are inferred as type <code>$double</code>, but if the number is a whole number it is also of type <code>$int</code>.
+		If the number is an unsigned whole number it is of type <code>$double</code>, <code>$int</code> and <code>$uint</code>.
 	</p>
 	<p>
 		Numbers in Relapse can be wrapped in a type to make the type of the number explicit.
 		For example:
 		<ul>
-			<li>int(123)</li>
-			<li>uint(456)</li>
-			<li>double(789)</li>
+			<li><code>int(123)</code></li>
+			<li><code>uint(456)</code></li>
+			<li><code>double(789)</code></li>
 		</ul>
-		If the type of the number is not explicity specified Relapse tries to infer it.
-		A whole number is always infered to be of type $int while a floating point number that is not a whole number is infered to be of type $double.
-		The type of $uint can not be infered and should always be specified explicity.
+		If the type of the number is not explicitly specified Relapse tries to infer it.
+		A whole number is always infered to be of type <code>$int</code> while a floating point number that is not a whole number is infered to be of type <code>$double</code>.
+		The type of <code>$uint</code> can not be inferred and should always be specified explicitly.
+	</p>
+	<p>
+		There are a couple of built in functions for validating numbers with special shorthands.
+		You should know most of these comparators from math, but the rest are explained using block comments.
+	</p>
+	<p>
+		The ampersand <code>&amp;</code> is used the indicate <b>and</b>, which will be discussed later, but its use here should be quite clear.
 	</p>
 	<p>
 		Exercises:
 		<ol>
 			<li>
-				Change the Survived field's value in the right hand side JSON to a negative number bigger than -2016.  The bar should become orange.
+				Change the Survived field's value in the json textbox to a negative number bigger than <code>-2016</code>.  The bar should become orange.
 			</li>
 			<li>
-				Remove the lines $uint, > and ==.  The bar should become green.
+				Remove the lines <code>$uint</code>, <code>&gt;</code> and <code>==</code>.  The bar should become green.
 			</li>
 			<li>
-				Change the Survived field's value in the JSON object to a floating point number like 0.1.  The bar should be orange.
+				Change the Survived field's value in the JSON object to a floating point number like <code>0.1</code>.  The bar should be orange.
 			</li>
 			<li>
-				Change the $int to $double.  The bar should become green, but it is still orange.
+				Change the <code>$int</code> to <code>$double</code>.  The bar should become green, but it is still orange.
 			</li>
 			<li>
-				Relapse infers all the whole numbers to be of $int.  So lets make it clear that they are doubles, by wrapping them in double enclosed brackets.
-				For example Survived >= double(-2016).  The bar should become green.
+				Relapse infers all the whole numbers to be of type int.  So lets make it clear that they are doubles, by wrapping them in double enclosed brackets.
+				For example <code>Survived >= double(-2016)</code>.  The bar should become green.
+			</li>
+			<li>
+				Replace the double wrapping with a <code>.0</code>.  This also allows the Relapse parser to infer a number of type double.
+				For example <code>Survived >= -2016.0</code>.  The bar should stay green.
 			</li>
 		</ol>
 	</p>
@@ -174,35 +179,35 @@ var booleanTour  = {
 	"heading": "Other Types",
 	"text": `
 	<p>
-	Booleans in Relapse are represented with the two keywords, <b>true</b> and <b>false</b>.
+	Booleans in Relapse are represented with the two keywords, <code>true</code> and <code>false</code>.
 	</p>
 	<p>
-	The operators ==, *=, ^=, <, etc. that we have seen before are all shorthand operators.
-	Relapse also supports more complex functions, which is invoked with the -> <i>arrow operator</i>.
-	For example <i>== false</i> is equivalent to <i>-> eq($bool, false)</i>.
-	This means that the field is of type $bool and is equal to false.
+	Relapse does not only support shorthand operators like <code>==</code>, but also supports more complex functions.
+	These complex functions are invoked with the <code>-></code> <i>arrow operator</i>.
+	For example <code>== false</code> is equivalent to <code>-> eq($bool, false)</code>.
+	This means that the field is of type <code>$bool</code> and is equal to false.
 	</p>
 	<p>
 	Bytes is the last native Relapse type.
 	Unfortunately JSON does not have a bytes type, so this tour is not going to cover it in great detail.
-	The second field comparison does not even take the field value into account: <i>-> eq(length([]byte{0x1,2,'a'}), 3)</i>.
+	The second field comparison, <code>-> eq(length([]byte{0x1,2,'a'}), 3)</code>, does not even take the field value into account.
 	It only checks whether a list of predefined bytes have a length of 3.
 	</p>
 	<p>
 	All these functions are statically typed, but some are overridden with multiple types.
-	For example <b>eq</b> can compare any two of the same types.
+	For example <code>eq</code> can compare any two of the same types.
 	</p>
 	<p>
 		Exercises:
 		<ol>
 			<li>
-				Change the false boolean in the JSON text box on the right to true.  The bar should become orange.
+				Change the <code>false</code> boolean in the JSON text box to <code>true</code>.  The bar should become orange.
 			</li>
 			<li>
-				Remove the line containing the ignored field value and change the <i>== false</i> expression to <i>== true</i>.  The bar should stay orange.
+				Remove the line containing the ignored field value and change the <code>== false</code> expression to <code>== true</code>.  The bar should stay orange.
 			</li>
 			<li>
-				Finally change the expression <i>-> eq($bool, false)</i> to <i>-> or(eq($bool, false), eq($bool, true))</i>.  The bar should become green.
+				Finally change the expression <code>-> eq($bool, false)</code> to <code>-> or(eq($bool, false), eq($bool, true))</code>.  The bar should become green.
 			</li>
 		</ol>
 	</p>
