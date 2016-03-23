@@ -54,7 +54,7 @@ var stringFieldsTour = {
 		</ul>
 		The raw string is started with a backtick, can contain any UTF8 characters and is only terminated by another backtick.
 		The interpreted string is contained within double quotes, can contain backslash escaped characters and cannot contain any new lines.
-		The Relapse <a href="http://katydid.github.io/doc/syntax.html">syntax</a> documentation contains more detail on string literals.
+		The Relapse <a href="http://katydid.github.io/doc/syntax.html#string-literals">syntax</a> documentation contains more detail on string literals.
 	</p>
 	<p>
 		Fieldnames can be expressed as a string literal with quotes or backticks.
@@ -113,6 +113,7 @@ var numberFieldsTour = {
 		The JSON parser included in Katydid tries to infer the type of the number.
 		All numbers are inferred as type <code>$double</code>, but if the number is a whole number it is also of type <code>$int</code>.
 		If the number is an unsigned whole number it is of type <code>$double</code>, <code>$int</code> and <code>$uint</code>.
+		The Relapse <a href="http://katydid.github.io/doc/syntax.html#literals">syntax</a> documentation contains more detail on integer, unsigned integer and double literals.
 	</p>
 	<p>
 		Numbers in Relapse can be wrapped in a type to make the type of the number explicit.
