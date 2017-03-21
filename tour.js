@@ -124,8 +124,8 @@ var numberFieldsTour = {
 			<li><code>double(789)</code></li>
 		</ul>
 		If the type of the number is not explicitly specified Relapse tries to infer it.
-		A whole number is always infered to be of type <code>$int</code> while a floating point number that is not a whole number is infered to be of type <code>$double</code>.
-		The type of <code>$uint</code> can not be inferred and should always be specified explicitly.
+		A whole number is always infered to be of type <code>$int</code>.
+		The type of <code>$uint</code> and <code>$double</code> can not be inferred and should always be specified explicitly.
 	</p>
 	<p>
 		There are a couple of built in functions for validating numbers with special shorthands.
@@ -144,7 +144,7 @@ var numberFieldsTour = {
 				Remove the lines <code>$uint</code>, <code>&gt;</code> and <code>==</code>.  The bar should become green.
 			</li>
 			<li>
-				Change the Survived field's value in the JSON object to a floating point number like <code>0.1</code>.  The bar should be orange.
+				Change the Survived field's value in the JSON object to a floating point number like <code>double(0.1)</code>.  The bar should be orange.
 			</li>
 			<li>
 				Change the <code>$int</code> to <code>$double</code>.  The bar should become green, but it is still orange.
@@ -152,10 +152,6 @@ var numberFieldsTour = {
 			<li>
 				Relapse infers all the whole numbers to be of type int.  So lets make it clear that they are doubles, by wrapping them in double enclosed brackets.
 				For example <code>Survived >= double(-2016)</code>.  The bar should become green.
-			</li>
-			<li>
-				Replace the double wrapping with a <code>.0</code>.  This also allows the Relapse parser to infer a number of type double.
-				For example <code>Survived >= -2016.0</code>.  The bar should stay green.
 			</li>
 		</ol>
 	</p>
