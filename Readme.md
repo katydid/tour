@@ -1,6 +1,4 @@
-# A tour of katydid relapse
-
-A Tour of Relapse
+# A tour of the Katydid validator language
 
 http://katydid.github.io/tour
 
