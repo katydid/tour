@@ -6,14 +6,14 @@ var welcomeTour = {
 	"heading": "Welcome",
 	"text": `
 	<p>
-		Welcome to a tour of the Relapse validation language.
+		Welcome to a tour of the Katydid validator language.
 	</p>
 	<p>
-		The tour is interactive, so when typing in the textboxes Relapse will compile and try to validate the input.
+		The tour is interactive, so when typing in the textboxes the validator will compile and try to validate the input.
 		This will result in the display of a green bar for valid, orange bar for invalid and red bar for a syntax or other error.
 	</p>
 	<p>
-		The examples in the tour are meant to do a walk through most of the features of Relapse.
+		The examples in the tour are meant to do a walk through most of the features of the Katydid Validator.
 		After running through the tour you should be able to start writing your own validating expressions.
 	</p>
 	<p>
@@ -35,7 +35,7 @@ var welcomeTour = {
 		</ol>
 	</p>
 	`,
-	"relapse": `WhatsUp == "E"`, 
+	"validator": `WhatsUp == "E"`, 
 	"input": welcomeJson
 }
 
@@ -47,14 +47,14 @@ var stringFieldsTour = {
 	"heading": "Strings",
 	"text": `
 	<p>
-		Relapse allows two specifications for string literals.
+		The Katydid Validator allows two specifications for string literals.
 		<ul>
 			<li>raw <code>\`with backticks\`</code></li>
 			<li>interpreted <code>"with double quotes"</code></li>
 		</ul>
 		The raw string is started with a backtick, can contain any UTF8 characters and is only terminated by another backtick.
 		The interpreted string is contained within double quotes, can contain backslash escaped characters and cannot contain any new lines.
-		The Relapse <a href="http://katydid.github.io/doc/syntax.html#string-literals">syntax</a> documentation contains more detail on string literals.
+		The Katydid Validator <a href="http://katydid.github.io/doc/syntax.html#string-literals">syntax</a> documentation contains more detail on string literals.
 	</p>
 	<p>
 		Fieldnames can be expressed as a string literal with quotes or backticks.
@@ -83,7 +83,7 @@ var stringFieldsTour = {
 		</ol>
 	</p>
 	`,
-	"relapse": `(
+	"validator": `(
 	WhatsUp == "Evolution" /*equal*/ &
 	WhatsUp ^= "Evo" /*has prefix*/ &
 	WhatsUp *= "volutio" /*contains*/ &
@@ -103,7 +103,7 @@ var numberFieldsTour = {
 	"heading": "Numbers",
 	"text": `
 	<p>
-		Relapse is built for multiple serialization formats which can be more specific about number types than JSON can be.
+		The Katydid Vaildator is built for multiple serialization formats which can be more specific about number types than JSON can be.
 		The number types include:
 		<ul>
 			<li>Integer <code>$int</code></li>
@@ -113,17 +113,17 @@ var numberFieldsTour = {
 		The JSON parser included in Katydid tries to infer the type of the number.
 		All numbers are inferred as type <code>$double</code>, but if the number is a whole number it is also of type <code>$int</code>.
 		If the number is an unsigned whole number it is of type <code>$double</code>, <code>$int</code> and <code>$uint</code>.
-		The Relapse <a href="http://katydid.github.io/doc/syntax.html#literals">syntax</a> documentation contains more detail on integer, unsigned integer and double literals.
+		The Katydid Validator <a href="http://katydid.github.io/doc/syntax.html#literals">syntax</a> documentation contains more detail on integer, unsigned integer and double literals.
 	</p>
 	<p>
-		Numbers in Relapse can be wrapped in a type to make the type of the number explicit.
+		Numbers in the Validator can be wrapped in a type to make the type of the number explicit.
 		For example:
 		<ul>
 			<li><code>int(123)</code></li>
 			<li><code>uint(456)</code></li>
 			<li><code>double(789)</code></li>
 		</ul>
-		If the type of the number is not explicitly specified Relapse tries to infer it.
+		If the type of the number is not explicitly specified the Katydid Validator tries to infer it.
 		A whole number is always infered to be of type <code>$int</code>.
 		The type of <code>$uint</code> and <code>$double</code> can not be inferred and should always be specified explicitly.
 	</p>
@@ -150,13 +150,13 @@ var numberFieldsTour = {
 				Change the <code>$int</code> to <code>$double</code>.  The bar should become green, but it is still orange.
 			</li>
 			<li>
-				Relapse infers all the whole numbers to be of type int.  So lets make it clear that they are doubles, by wrapping them in double enclosed brackets.
+				The Katydid Validator infers all the whole numbers to be of type int.  So lets make it clear that they are doubles, by wrapping them in double enclosed brackets.
 				For example <code>Survived >= double(-2016)</code>.  The bar should become green.
 			</li>
 		</ol>
 	</p>
 	`,
-	"relapse": `(
+	"validator": `(
 	Survived > 999999 &
 	Survived >= -2016 &
 	Survived == int(1000000) &
@@ -176,16 +176,16 @@ var booleanTour  = {
 	"heading": "Other Types",
 	"text": `
 	<p>
-	Booleans in Relapse are represented with the two keywords, <code>true</code> and <code>false</code>.
+	Booleans in the Katydid Validator are represented with the two keywords, <code>true</code> and <code>false</code>.
 	</p>
 	<p>
-	Relapse does not only support shorthand operators like <code>==</code>, but also supports more complex functions.
+	The Katydid Validator does not only support shorthand operators like <code>==</code>, but also supports more complex functions.
 	These complex functions are invoked with the <code>-></code> <i>arrow operator</i>.
 	For example <code>== false</code> is equivalent to <code>-> eq($bool, false)</code>.
 	This means that the field is of type <code>$bool</code> and is equal to false.
 	</p>
 	<p>
-	Bytes is the last native Relapse type.
+	Bytes is the last native Validator type.
 	Unfortunately JSON does not have a bytes type, so this tour is not going to cover it in great detail.
 	The second field comparison, <code>-> eq(length([]byte{0x1,2,'a'}), 3)</code>, does not even take the field value into account.
 	It only checks whether a list of predefined bytes have a length of 3.
@@ -209,7 +209,7 @@ var booleanTour  = {
 		</ol>
 	</p>
 	`,
-	"relapse": `(
+	"validator": `(
 	DragonsExist == false &
 	DragonsExist -> eq(length([]byte{0x1,2,'a'}), 3) & // ignores the field value
 	DragonsExist -> eq($bool, false)
@@ -243,13 +243,13 @@ var nameTour  = {
 			</li>
 			<li>
 				Change <code>(MonkeysSmart|_)</code> to <code>!((MonkeysSmart|_))</code>.  The bar should become orange.
-				<i>Relapse does not use brackets as a grouping mechanism.  Brackets are paired with their operators.  The <code>!</code> operator will always have brackets and the <code>|</code> operator as well.
+				<i>The Validator does not use brackets as a grouping mechanism.  Brackets are paired with their operators.  The <code>!</code> operator will always have brackets and the <code>|</code> operator as well.
 				This is why we need two brackets, one for the <code>|</code> and one for the <code>!</code>.</i>
 			</li>
 		</ol>
 	</p>
 	`,
-	"relapse": `(DragonsExist|MonkeysSmart|!(_)) == false`, 
+	"validator": `(DragonsExist|MonkeysSmart|!(_)) == false`, 
 	"input": nameJson
 }
 
@@ -274,7 +274,7 @@ var zanyTour = {
 		</ol>
 	</p>
 	`,
-	"relapse": "*",
+	"validator": "*",
 	"input": zanyJson,
 }
 
@@ -307,7 +307,7 @@ var andOrTour = {
 		</ol>
 	</p>
 	`,
-	"relapse": "(Age > 30 & Age < 32 & Age == 31)",
+	"validator": "(Age > 30 & Age < 32 & Age == 31)",
 	"input": andOrJson,
 }
 
@@ -333,7 +333,7 @@ var structTour = {
 		</ol>
 	</p>
 	`,
-	"relapse": 'Wish: Dart: == "Poison"',
+	"validator": 'Wish: Dart: == "Poison"',
 	"input": structJson,
 }
 
@@ -368,7 +368,7 @@ var emptyTour = {
 		</ol>
 	</p>
 	`,
-	"relapse": 'Wish: Dart: Poison: <empty>',
+	"validator": 'Wish: Dart: Poison: <empty>',
 	"input": emptyJson,
 }
 
@@ -410,7 +410,7 @@ var concatTour = {
 		</ol>
 	</p>
 	`,
-	"relapse": `History: [
+	"validator": `History: [
 	0: == "Giant Lizards",
 	_ == "Meteor",
 	2:*,
@@ -462,7 +462,7 @@ var zeroOrMoreTour = {
 		</ol>
 	</p>
 	`,
-	"relapse": 'History: (_ :: $string)*',
+	"validator": 'History: (_ :: $string)*',
 	"input": zeroOrMoreJson,
 }
 
@@ -495,7 +495,7 @@ var interleaveTour = {
 		</ol>
 	</p>
 	`,
-	"relapse": `{
+	"validator": `{
 	MonkeysSmart :: $bool;
 	DragonsExist :: $bool;
 	WhatsUp :: $string;
@@ -538,7 +538,7 @@ var optionalTour = {
 		</ol>
 	</p>
 	`,
-	"relapse": `{
+	"validator": `{
 	(MonkeysSmart :: $bool)?;
 	DragonsExist :: $bool;
 	(WhatsUp :: $string)?;
@@ -579,7 +579,7 @@ var containsTour = {
 		</ol>
 	</p>
 	`,
-	"relapse": `.WhatsUp == "E"`,
+	"validator": `.WhatsUp == "E"`,
 	"input": containsJson,
 }
 
@@ -620,7 +620,7 @@ var notTour = {
 		</ol>
 	</p>
 	`,
-	"relapse": `!(WhatsUp == "E")`,
+	"validator": `!(WhatsUp == "E")`,
 	"input": notJson,
 }
 
@@ -670,7 +670,7 @@ var refsTour = {
 		</ol>
 	</p>
 	`,
-	"relapse": `Family: @order
+	"validator": `Family: @order
 #order = ( .Order == "Orthoptera" | .Order: @order )`,
 	"input": refsJson,
 }
@@ -684,7 +684,7 @@ var finalJsonTour = {
 	<p>
 		An answer, valid JSON, will be provided on the next page.
 	</p>`,
-	"relapse": `{
+	"validator": `{
 	WhatsUp *= "E";
 	History [
 		0 ^= "Dino",
@@ -719,25 +719,25 @@ var finalExprTour = {
 	<p>
 		An answer will be provided on the next page.
 	</p>`,
-	"relapse": ``,
+	"validator": ``,
 	"input": finalExprJson,
 }
 
 var goodbyeJson = JSON.stringify({
-	"WhatsUp": "RelapsE",
+	"WhatsUp": "E",
 }, "", 4);
 
 var goodbyeTour = { 
 	"heading": "Thank you",
 	"text": `
 	<p>
-		Thank you for taking a tour of Relapse.
+		Thank you for taking a tour of the Katydid Validor.
 	</p>
 	<p>
 		More documentation can be found <a href="http://katydid.github.io/">here</a>
 	</p>
 	`,
-	"relapse": `{
+	"validator": `{
 	"WhatsUp" == "Evolution";
 	History [
 		0 ^= "Dino",
@@ -823,7 +823,7 @@ function tourinit() {
 	$("#tourheading").text(tour.heading);
 	document.getElementById("tourtext").innerHTML = tour["text"];
 	document.getElementById("tourprogress").setAttribute("style", `width: ` + (tourNumber+1)*100/tours.length + `%;`);
-	codeMirrors["katydid"].setValue(tour["relapse"]);
+	codeMirrors["katydid"].setValue(tour["validator"]);
 	codeMirrors["json"].setValue(tour["input"]);
 	if ((tourNumber+1) < tours.length) {
 		document.getElementById("nextref").setAttribute("href", "./index.html?tour="+(tourNumber+1));
