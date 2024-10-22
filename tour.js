@@ -2,7 +2,7 @@ var welcomeJson = JSON.stringify({
 	"WhatsUp": "E",
 }, "", 4);
 
-var welcomeTour = { 
+var welcomeTour = {
 	"heading": "Welcome",
 	"text": `
 	<p>
@@ -29,13 +29,13 @@ var welcomeTour = {
 				Change the <code>E</code> in the json textbox, on the right, to <code>Evolution</code>.  The bar should become green.  This indicates that the WhatsUp field in the JSON object <b>is</b> equal to Evolution.
 			</li>
 			<li>
-				Change the <code>Evolution</code> string in the expression textbox back to <code>E</code>, but also change the <code>==</code> <i>equal operator</i> to the <code>^=</code> <i>starts with operator</i>. 
+				Change the <code>Evolution</code> string in the expression textbox back to <code>E</code>, but also change the <code>==</code> <i>equal operator</i> to the <code>^=</code> <i>starts with operator</i>.
 				The bar should become green, indicating that the WhatsUp field in the JSON object has a prefix of E.
 			</li>
 		</ol>
 	</p>
 	`,
-	"validator": `WhatsUp == "E"`, 
+	"validator": `WhatsUp == "E"`,
 	"input": welcomeJson
 }
 
@@ -43,7 +43,7 @@ var stringFieldsJson = JSON.stringify({
 	"WhatsUp": "Evolution",
 }, "", 4);
 
-var stringFieldsTour = { 
+var stringFieldsTour = {
 	"heading": "Strings",
 	"text": `
 	<p>
@@ -91,7 +91,7 @@ var stringFieldsTour = {
 	"WhatsUp" != "Hello World" /*not equal*/ &
 	WhatsUp ~= "^Evo.*tion$" /*matches regular expression*/ &
 	\`WhatsUp\` :: $string /*type of*/
-)`, 
+)`,
 	"input": stringFieldsJson
 }
 
@@ -99,7 +99,7 @@ var numberFieldsJson = JSON.stringify({
 	"Survived": 1000000,
 }, "", 4);
 
-var numberFieldsTour = { 
+var numberFieldsTour = {
 	"heading": "Numbers",
 	"text": `
 	<p>
@@ -164,7 +164,7 @@ var numberFieldsTour = {
 	Survived < 100000000 &
 	Survived :: $uint /*type of uint*/ &
 	Survived :: $int /*type of int*/
-)`, 
+)`,
 	"input": numberFieldsJson
 }
 
@@ -172,7 +172,7 @@ var boolFieldsJson = JSON.stringify({
 	"DragonsExist": false,
 }, "", 4);
 
-var booleanTour  = { 
+var booleanTour = {
 	"heading": "Other Types",
 	"text": `
 	<p>
@@ -213,7 +213,7 @@ var booleanTour  = {
 	DragonsExist == false &
 	DragonsExist -> eq(length([]byte{0x1,2,'a'}), 3) & // ignores the field value
 	DragonsExist -> eq($bool, false)
-)`, 
+)`,
 	"input": boolFieldsJson
 }
 
@@ -221,7 +221,7 @@ var nameJson = JSON.stringify({
 	"DragonsExist": false,
 }, "", 4);
 
-var nameTour  = { 
+var nameTour = {
 	"heading": "Names",
 	"text": `
 	<p>
@@ -249,7 +249,7 @@ var nameTour  = {
 		</ol>
 	</p>
 	`,
-	"validator": `(DragonsExist|MonkeysSmart|!(_)) == false`, 
+	"validator": `(DragonsExist|MonkeysSmart|!(_)) == false`,
 	"input": nameJson
 }
 
@@ -374,11 +374,11 @@ var emptyTour = {
 
 var concatJson = JSON.stringify({
 	"History": [
-        "Giant Lizards",
-        "Meteor",
-        "Lizards Dead",
-        "Katydids Alive"
-    ],
+		"Giant Lizards",
+		"Meteor",
+		"Lizards Dead",
+		"Katydids Alive"
+	],
 }, "", 4);
 
 var concatTour = {
@@ -422,11 +422,11 @@ var concatTour = {
 
 var zeroOrMoreJson = JSON.stringify({
 	"History": [
-        "Giant Lizards",
-        "Meteor",
-        "Lizards Dead",
-        "Katydids Alive"
-    ],
+		"Giant Lizards",
+		"Meteor",
+		"Lizards Dead",
+		"Katydids Alive"
+	],
 }, "", 4);
 
 var zeroOrMoreTour = {
@@ -468,8 +468,8 @@ var zeroOrMoreTour = {
 
 var interleaveJson = JSON.stringify({
 	"DragonsExist": false,
-    "WhatsUp": "E",
-    "MonkeysSmart": true
+	"WhatsUp": "E",
+	"MonkeysSmart": true
 }, "", 4);
 
 var interleaveTour = {
@@ -482,7 +482,7 @@ var interleaveTour = {
 		Exercises:
 		<ol>
 			<li>
-				Remove the last semicolon.  The bar should stay green, since you are allowed to include or forget the last semicolon. 
+				Remove the last semicolon.  The bar should stay green, since you are allowed to include or forget the last semicolon.
 			</li>
 			<li>
 				Remove the lines containing <code>$bool</code> and replace them with one line <code>_ :: $bool;</code>.
@@ -505,8 +505,8 @@ var interleaveTour = {
 
 var optionalJson = JSON.stringify({
 	"DragonsExist": false,
-    "WhatsUp": "E",
-    "MonkeysSmart": true
+	"WhatsUp": "E",
+	"MonkeysSmart": true
 }, "", 4);
 
 var optionalTour = {
@@ -548,8 +548,8 @@ var optionalTour = {
 
 var containsJson = JSON.stringify({
 	"DragonsExist": false,
-    "WhatsUp": "E",
-    "MonkeysSmart": true
+	"WhatsUp": "E",
+	"MonkeysSmart": true
 }, "", 4);
 
 var containsTour = {
@@ -585,8 +585,8 @@ var containsTour = {
 
 var notJson = JSON.stringify({
 	"DragonsExist": false,
-    "WhatsUp": "E",
-    "MonkeysSmart": true
+	"WhatsUp": "E",
+	"MonkeysSmart": true
 }, "", 4);
 
 var notTour = {
@@ -626,17 +626,17 @@ var notTour = {
 
 var refsJson = JSON.stringify({
 	"Family": {
-        "Class": "Insecta",
-        "Order": {
-            "Superorder": {
-                "Subclass": "Pterygota",
-                "Infraclass": "Polyneoptera",
-            },
-            "Order": "Orthoptera"
-        },
-        "Suborder": "Ensifera",
-        "Family": "Tettigoniidae",
-    }
+		"Class": "Insecta",
+		"Order": {
+			"Superorder": {
+				"Subclass": "Pterygota",
+				"Infraclass": "Polyneoptera",
+			},
+			"Order": "Orthoptera"
+		},
+		"Suborder": "Ensifera",
+		"Family": "Tettigoniidae",
+	}
 }, "", 4);
 
 var refsTour = {
@@ -698,13 +698,13 @@ var finalJsonTour = {
 
 finalExprJson = JSON.stringify({
 	"WhatsUp": "Evolution",
- 	"History": [
-  		"Dinosaurs",
-      	"Meteor",
-      	"Dinosaurs Dead",
-      	"Katydids Alive"
-  	],
-  	"Survived": 10000000
+	"History": [
+		"Dinosaurs",
+		"Meteor",
+		"Dinosaurs Dead",
+		"Katydids Alive"
+	],
+	"Survived": 10000000
 }, "", 4);
 
 var finalExprTour = {
@@ -727,7 +727,7 @@ var goodbyeJson = JSON.stringify({
 	"WhatsUp": "E",
 }, "", 4);
 
-var goodbyeTour = { 
+var goodbyeTour = {
 	"heading": "Thank you",
 	"text": `
 	<p>
@@ -746,7 +746,7 @@ var goodbyeTour = {
 		3 $= "Alive",
 	];
 	"Survived" > 0;
-}`, 
+}`,
 	"input": goodbyeJson
 }
 
@@ -775,27 +775,27 @@ var tours = [
 function tourinit() {
 	var mode = "json";
 	var katydidCodeMirror = CodeMirror(document.getElementById("lefttextarea"), {
-  		mode:  "katydidmode",
-  		value: 'loading...',
-  		viewportMargin: Infinity
+		mode: "katydidmode",
+		value: 'loading...',
+		viewportMargin: Infinity
 	});
-	var codeMirrors = {"katydid": katydidCodeMirror};
+	var codeMirrors = { "katydid": katydidCodeMirror };
 	var inputCodeMirror = CodeMirror(document.getElementById("righttextarea"), {
-  		mode:  {name: "javascript", json: true},
-  		value: 'loading...',
-  		viewportMargin: Infinity
+		mode: { name: "javascript", json: true },
+		value: 'loading...',
+		viewportMargin: Infinity
 	});
 	codeMirrors[mode] = inputCodeMirror;
 	$("#mode" + mode).addClass("active");
 	$("#inputheading").text(mode);
 
-	$("#validateButton").click(function(ev) { 
+	$("#validateButton").click(function (ev) {
 		ev.preventDefault();
 		validateCode(mode, codeMirrors);
 	});
 
 	setHeightDefault();
-	$("#autosizeButton").click(function(ev) {
+	$("#autosizeButton").click(function (ev) {
 		ev.preventDefault();
 		wasChecked = $("#autosizeButton").hasClass("active");
 		if (wasChecked) {
@@ -810,9 +810,9 @@ function tourinit() {
 	setHeightAuto();
 
 	for (var key in codeMirrors) {
-		codeMirrors[key].on('keyup', function(instance, event) {
-    		validateCode(mode, codeMirrors);
-		});		
+		codeMirrors[key].on('keyup', function (instance, event) {
+			validateCode(mode, codeMirrors);
+		});
 	}
 
 	var tourNumber = parseInt(getUrlParameter("tour"));
@@ -822,11 +822,11 @@ function tourinit() {
 	var tour = tours[tourNumber];
 	$("#tourheading").text(tour.heading);
 	document.getElementById("tourtext").innerHTML = tour["text"];
-	document.getElementById("tourprogress").setAttribute("style", `width: ` + (tourNumber+1)*100/tours.length + `%;`);
+	document.getElementById("tourprogress").setAttribute("style", `width: ` + (tourNumber + 1) * 100 / tours.length + `%;`);
 	codeMirrors["katydid"].setValue(tour["validator"]);
 	codeMirrors["json"].setValue(tour["input"]);
-	if ((tourNumber+1) < tours.length) {
-		document.getElementById("nextref").setAttribute("href", "./index.html?tour="+(tourNumber+1));
+	if ((tourNumber + 1) < tours.length) {
+		document.getElementById("nextref").setAttribute("href", "./index.html?tour=" + (tourNumber + 1));
 	} else {
 		document.getElementById("nextButton").style.visibility = "hidden";
 	}
